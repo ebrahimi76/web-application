@@ -4,7 +4,6 @@ import com.example.demo.entity.Customer;
 import com.example.demo.entity.CustomersOrder;
 import com.example.demo.repository.CustomerRepository;
 import com.example.demo.service.core.BaseService;
-import com.example.demo.validation.CustomerValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +17,6 @@ import java.util.Optional;
 public class CustomerService extends BaseService<Customer, Long> {
 
     private final CustomerRepository repository;
-    private final CustomerValidationService customerValidationService;
 
     @PostConstruct
     public void init() {
@@ -29,25 +27,25 @@ public class CustomerService extends BaseService<Customer, Long> {
     @Override
     @Transactional
     public void save(Customer entity) {
-        if (customerValidationService.valid(entity)) {
+
             super.save(entity);
-        }
+
     }
 
     @Override
     @Transactional
     public void update(Customer entity) {
-        if (customerValidationService.valid(entity)) {
+
             super.update(entity);
-        }
+
     }
 
     @Override
     @Transactional
     public void delete(Customer entity) {
-        if (customerValidationService.valid(entity)) {
+
             super.delete(entity);
-        }
+
     }
 
 

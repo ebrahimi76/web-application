@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
-public class ValidationException extends Exception{
-    public ValidationException(String message) {
+public class ApplicationException extends Exception{
+    public ApplicationException(String message) {
         super(message);
     }
 
