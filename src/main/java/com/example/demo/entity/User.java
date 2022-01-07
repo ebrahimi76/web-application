@@ -21,6 +21,7 @@ public class User extends BaseUser {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserRole> roles;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserStatus> statuses;
 
