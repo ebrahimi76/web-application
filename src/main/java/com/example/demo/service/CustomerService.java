@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.CustomersOrder;
+import com.example.demo.entity.OrderStatus;
+import com.example.demo.entity.Suggestion;
 import com.example.demo.repository.CustomerRepository;
 import com.example.demo.service.core.BaseService;
 import lombok.RequiredArgsConstructor;
@@ -64,6 +66,13 @@ public class CustomerService extends BaseService<Customer, Long> {
     public void addOrder(Customer customer, CustomersOrder order) {
         customer.getOrders().add(order);
 
+        super.save(customer);
+    }
+    @Transactional
+    public void selectSuggestion(Customer customer, Suggestion selectedSuggestion){
+        List<CustomersOrder> orders = customer.getOrders();
+        orders.get(orders.size()-1).setSelectSuggestion(selectedSuggestion);
+        orders.get(orders.size()-1).setStatus(OrderStatus.PROCESSING);
         super.save(customer);
     }
 }
