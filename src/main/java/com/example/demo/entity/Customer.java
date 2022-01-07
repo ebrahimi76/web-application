@@ -24,5 +24,4 @@ public class Customer extends User {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @Builder.Default
     private List<CustomersOrder> orders = new ArrayList<>();
-
 }

@@ -63,6 +63,7 @@ public class CustomerService extends BaseService<Customer, Long> {
     @Transactional
     public void addOrder(Customer customer, CustomersOrder order) {
         customer.getOrders().add(order);
+
         super.save(customer);
     }
 }
