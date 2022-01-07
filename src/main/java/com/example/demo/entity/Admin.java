@@ -14,4 +14,5 @@ import javax.persistence.Entity;
 @SuperBuilder
 public class Admin extends User {
     private String adminState;
+    private Long adminSelector;
 }
