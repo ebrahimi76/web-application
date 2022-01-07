@@ -23,4 +23,5 @@ public class Suggestion extends BaseEntity {
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private CustomersOrder order;
+
 }
