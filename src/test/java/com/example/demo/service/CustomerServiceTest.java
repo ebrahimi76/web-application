@@ -42,7 +42,8 @@ public class CustomerServiceTest {
     @Test
     void testSaveCustomer_isOk() {
         Customer user = Customer.builder()
-                .firstname("Ali")
+                .firstname(null)
+                .test(null)
                 .username("Ali1234")
                 .password("lskjdklfj")
                 .build();
@@ -73,6 +74,7 @@ public class CustomerServiceTest {
         homeService.getSubServices().add(homeServiceOption);
         homeServiceRepository.save(homeService);
         homeServiceOptionRepository.save(homeServiceOption);
+
         CustomersOrder order = CustomersOrder.builder()
                 .customer(user)
                 .service(homeServiceOption)

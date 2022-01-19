@@ -70,6 +70,7 @@ public class EmployeeServiceTest {
         homeService.getSubServices().add(homeServiceOption);
         homeServiceRepository.save(homeService);
         homeServiceOptionRepository.save(homeServiceOption);
+
         CustomersOrder order = CustomersOrder.builder()
                 .customer(user)
                 .service(homeServiceOption)
