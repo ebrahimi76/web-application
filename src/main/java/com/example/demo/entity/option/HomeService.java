@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.entity.option;
 
 import com.example.demo.entity.core.BaseEntity;
 import lombok.*;
@@ -21,5 +21,5 @@ public class HomeService extends BaseEntity {
     private String name;
     @OneToMany(mappedBy = "homeService", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
-    private List<HomeServiceOption> subServices = new ArrayList<>();;
+    private List<HomeServiceOption> subServices = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.entity.users;
 
 import com.example.demo.entity.core.BaseEntity;
 import lombok.*;

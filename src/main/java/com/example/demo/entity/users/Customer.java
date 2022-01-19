@@ -1,5 +1,6 @@
-package com.example.demo.entity;
+package com.example.demo.entity.users;
 
+import com.example.demo.entity.option.CustomersOrder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +25,5 @@ public class Customer extends User {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @Builder.Default
     private List<CustomersOrder> orders = new ArrayList<>();
+
 }

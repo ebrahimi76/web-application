@@ -1,8 +1,8 @@
-package com.example.demo.entity;
+package com.example.demo.entity.option;
 
 import com.example.demo.entity.core.BaseEntity;
+import com.example.demo.entity.users.Employee;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -23,5 +23,4 @@ public class Suggestion extends BaseEntity {
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private CustomersOrder order;
-
 }

@@ -1,6 +1,5 @@
-package com.example.demo.entity;
+package com.example.demo.entity.option;
 
-import com.example.demo.entity.HomeService;
 import com.example.demo.entity.core.BaseEntity;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -15,6 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @SuperBuilder
 public class HomeServiceOption extends BaseEntity {
+    private String name;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private HomeService homeService;
     private BigDecimal basePrice;

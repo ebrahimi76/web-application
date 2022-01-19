@@ -22,7 +22,7 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private boolean isDeleted;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

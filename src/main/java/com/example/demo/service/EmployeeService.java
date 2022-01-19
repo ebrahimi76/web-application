@@ -1,12 +1,14 @@
 package com.example.demo.service;
 
 
-import com.example.demo.entity.CustomersOrder;
-import com.example.demo.entity.Employee;
-import com.example.demo.entity.Suggestion;
+import com.example.demo.entity.option.CustomersOrder;
+import com.example.demo.entity.option.Suggestion;
+import com.example.demo.entity.users.Customer;
+import com.example.demo.entity.users.Employee;
 import com.example.demo.repository.CustomersOrderRepository;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.core.BaseService;
+import com.example.demo.validation.EmployeeValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ import java.util.Optional;
 public class EmployeeService extends BaseService<Employee, Long> {
 
     private final EmployeeRepository repository;
+    private final EmployeeValidationService employeeValidationService;
     private final CustomersOrderRepository customersOrderRepository;
 
     @PostConstruct
@@ -37,13 +40,17 @@ public class EmployeeService extends BaseService<Employee, Long> {
     @Override
     @Transactional
     public void update(Employee entity) {
-        super.update(entity);
+        if (employeeValidationService.valid(entity)) {
+            super.update(entity);
+        }
     }
 
     @Override
     @Transactional
     public void delete(Employee entity) {
-        super.delete(entity);
+        if (employeeValidationService.valid(entity)) {
+            super.delete(entity);
+        }
     }
 
 
